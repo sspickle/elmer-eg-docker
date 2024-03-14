@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+    elmer:
+        tty: true
+        image: us.gcr.io/gcpdrive-sjstest/elmer-eg:1
+        volumes:
+            - ${PWD}:/home
+        environment:
+            - DISPLAY=$HOSTNAME:0
+        command:
+            - ElmerGUI
+
