@@ -1,5 +1,7 @@
 version: "2"
 
+# define HOSTNAME before launching compose!
+
 services:
     elmer:
         tty: true

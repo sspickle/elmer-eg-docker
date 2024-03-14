@@ -8,8 +8,9 @@ I tried to use [elmerfem-docker](https://github.com/ElmerCSC/elmerfem-docker) to
 Run the container like so...
 
     1. Launch XQuartz
-    2. Run xhost + `hostname`
-    3. docker run --rm -it -e DISPLAY=`hostname`:0 -v ${PWD}:/home elmer-eg bash
+    2. export HOSTNAME=`hostname`
+    3. Run xhost + ${HOSTNAME}
+    3. docker run --rm -it -e DISPLAY=${HOSTNAME}:0 -v ${PWD}:/home elmer-eg bash
 
 Then you'll be in the `/home` directory of the ubuntu container, but the contents of the current directory on the mac will be mapped there.
 
@@ -23,3 +24,6 @@ Build the image like this:
     docker build --tag=elmer-eg --platform=linux/amd64 .
 
 The elmer ubuntu packages don't see to work on ARM yet, so I specify amd.
+
+You can also use the docker-compose.yml file. Make sure you `export HOSTNAME=...` first!
+
