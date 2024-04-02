@@ -6,6 +6,7 @@ services:
     elmer:
         tty: true
         image: us.gcr.io/gcpdrive-sjstest/elmer-eg:1
+        platform: linux/amd64
         volumes:
             - ${PWD}:/home
         environment:
